@@ -84,15 +84,24 @@ if (form) {
     }
   });
 }
+function doGet(e) {
+  return ContentService.createTextOutput(
+    JSON.stringify({status:"ready", message:"Usa POST para enviar datos"})
+  ).setMimeType(ContentService.MimeType.JSON);
+}
+
 function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("FundEdu Registro");
   try {
     var data = JSON.parse(e.postData.contents);
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("FundEdu Registro");
     sheet.appendRow([new Date(), data.name, data.email, data.interest, data.source]);
-    return ContentService.createTextOutput(JSON.stringify({status:"success"}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({status:"success", message:"Registro guardado"})
+    ).setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
-    return ContentService.createTextOutput(JSON.stringify({status:"error", message: err}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(
+      JSON.stringify({status:"error", message: err.message})
+    ).setMimeType(ContentService.MimeType.JSON);
   }
 }
+
