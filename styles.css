@@ -1,0 +1,340 @@
+/* Design tokens */
+:root {
+    --bg-gradient-start: #0A9CAA;
+    --bg-gradient-end: #73D35E;
+    --c-1: #0396A6;
+    --c-2: #0AA6A6;
+    --c-3: #2EA684;
+    --c-4: #5ABF69;
+    --c-5: #83D95B;
+
+    --text: #FFFFFF;
+
+    --radius: 14px;
+    --radius-soft: 18px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+    --space-1: 8px;
+    --space-2: 12px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+    --space-6: 48px;
+    --maxw: 1100px;
+    --line: 1.6;
+    --font: 'Montserrat';
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--text);
+    line-height: var(--line);
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+.section {
+    padding: var(--space-6) 0;
+}
+
+.section--alt {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+    border-radius: var(--radius-soft);
+    margin: var(--space-4);
+    padding: var(--space-6);
+}
+
+/* Header */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(10, 156, 170, 0.35);
+    backdrop-filter: blur(8px);
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) 0;
+}
+
+.brand__logo {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Nav */
+.nav__toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.nav__list {
+    display: flex;
+    gap: var(--space-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__link {
+    color: var(--text);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.nav__link:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* Hero */
+.hero__inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-5);
+    align-items: center;
+}
+
+.hero__title {
+    font-size: 2.4rem;
+    margin: 0 0 var(--space-2);
+}
+
+.hero__subtitle {
+    opacity: 0.95;
+    margin-bottom: var(--space-4);
+}
+
+.hero__actions {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.placeholder {
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius);
+    padding: var(--space-5);
+    text-align: center;
+    opacity: 0.9;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    gap: var(--space-5);
+}
+
+.grid--2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+    box-shadow: var(--shadow);
+}
+
+.card--soft {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.card--quote footer {
+    margin-top: var(--space-2);
+    opacity: 0.85;
+}
+
+/* Lists */
+.list {
+    padding-left: 1rem;
+}
+
+.list li {
+    margin-bottom: var(--space-2);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-family: var(--font);
+    color: var(--text);
+    font-weight: 600;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--c-2), var(--c-4));
+    box-shadow: 0 8px 20px rgba(90, 191, 105, 0.35);
+}
+
+.btn--secondary {
+    background: linear-gradient(135deg, var(--c-1), var(--c-3));
+    box-shadow: 0 8px 20px rgba(3, 150, 166, 0.35);
+}
+
+/* Form */
+.form__group {
+    margin-bottom: var(--space-3);
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text);
+    outline: none;
+    font-family: var(--font);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--c-5);
+    /* Color verde de tus variables */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(131, 217, 91, 0.3);
+    /* Brillo suave */
+
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.form__error {
+    display: none;
+    color: #fff;
+    opacity: 0.9;
+    font-size: 0.9rem;
+    margin-top: 6px;
+}
+
+.form__status {
+    margin-top: var(--space-3);
+}
+
+/* Responsive (simple) */
+@media (max-width: 900px) {
+    .hero__inner {
+        grid-template-columns: 1fr;
+    }
+
+    .grid--2 {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .nav__toggle {
+        display: inline-block;
+    }
+
+    .nav__list {
+        display: none;
+    }
+
+    .nav__list.is-open {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+img.placeholder {
+    width: 100%;
+    border: none;
+    padding: 0;
+}
+select {
+  cursor: pointer;
+  appearance: none; /* Quita la flecha por defecto */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-2) center;
+  background-size: 1.2rem;
+  -webkit-appearance: none; /* Quita el diseño por defecto en Safari/Chrome */
+  -moz-appearance: none;    /* Quita el diseño por defecto en Firefox */
+  appearance: none;         /* Estándar 2026 */
+}
+
+/* IMPORTANTE: Estilo de las opciones (el fondo cuando despliegas) */
+select option {
+  background-color: var(--c-3); /* Fondo sólido para que se lea el texto */
+  color: white;
+  padding: 10px;
+  border: none; /* Intenta quitar bordes internos */
+  outline: none;
+}
+.card--soft {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px); /* Efecto de vidrio moderno */
+  padding: var(--space-4);
+  border-radius: var(--radius-soft);
+  box-shadow: var(--shadow);
+}
+
+.form__group label {
+  display: block;
+  margin-bottom: var(--space-1);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+

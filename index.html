@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FundEdu</title>
+  <meta name="description" content="FundEdu: educación empresarial moderna para jóvenes de 13–17. Liderazgo, comunidad y aprendizaje con propósito."/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+</head>
+<body>
+  <!-- Header / Navbar -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#" class="brand">
+        <!-- Reemplaza con tu logo -->
+        <span class="brand__logo">FundEdu</span>
+      </a>
+      <nav class="nav">
+        <button class="nav__toggle" aria-label="Abrir menú">☰</button>
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link">Inicio</a></li>
+          <li><a href="#who" class="nav__link">Quiénes somos</a></li>
+          <li><a href="#impact" class="nav__link">Impacto</a></li>
+          <li><a href="#guides" class="nav__link">Guía</a></li>
+          <li><a href="#castle" class="nav__link">El Castillo</a></li>
+          <li><a href="#testimonials" class="nav__link">Testimonios</a></li>
+          <li><a href="#contact" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="section hero">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title">Forma tu futuro con fuerza financiera</h1>
+          <p class="hero__subtitle">Un espacio seguro, fresco y energético para líderes jóvenes de 12 a 17 años.</p>
+          <div class="hero__actions">
+            <a href="#guides" class="btn btn--primary">Únete a FundEdu</a>
+            <a href="#castle" class="btn btn--secondary">Descubre El Castillo</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <!-- Reemplaza con tus imágenes/ilustraciones -->
+           <img class="placeholder" src="logo0.png" alt="logoFund" />
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section id="who" class="section">
+      <div class="container grid grid--2">
+        <div>
+          <h2>Quiénes somos</h2>
+          <p>FundEdu existe para empoderar a jóvenes 
+            con habilidades de liderazgo, emprendimiento y aprendizaje práctico.
+             Creemos en una comunidad que inspira confianza y propósito.</p>
+          <ul class="list">
+            <li><strong>Liderazgo:</strong> proyectos reales y trabajo en equipo.</li>
+            <li><strong>Aprendizaje:</strong> guías claras y mentoría.</li>
+            <li><strong>Comunidad:</strong> pertenencia, seguridad y crecimiento.</li>
+          </ul>
+        </div>
+        <div class="card card--soft">
+          <h3>Nuestra misión</h3>
+          <p>Crear experiencias educativas modernas con mentalidad de startup claras, motivadoras y orientadas al futuro.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact" class="section section--alt">
+      <div class="container">
+        <h2>Impacto estudiantil</h2>
+        <p>Historias de crecimiento, habilidades y experiencias que construyen confianza.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Crecimiento</h3>
+            <p>Metas claras, hábitos y proyectos que impulsan tu progreso.</p>
+          </article>
+          <article class="card">
+            <h3>Habilidades</h3>
+            <p>Comunicación, liderazgo, finanzas básicas y pensamiento crítico.</p>
+          </article>
+          <article class="card">
+            <h3>Experiencias</h3>
+            <p>Retos guiados, eventos y colaboración con aliados.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- YOUTH GUIDES – REGISTRATION -->
+    <section id="guides" class="section">
+      <div class="container grid grid--2">
+        <div>
+          <h2>Regístrate como Guía juvenil</h2>
+          <p>Todos comienzan como Guía juvenil, un rol para aprender, liderar y crecer con apoyo. ¡Aplica con confianza!</p>
+          <p class="note">Tu información se usará para contactarte y sumarte a la comunidad.</p>
+        </div>
+        <form id="registrationForm" class="form card card--soft" novalidate>
+          <div class="form__group">
+            <label for="name">Nombre completo</label>
+            <input id="name" name="name" type="text" required placeholder="Tu nombre"/>
+            <small class="form__error">Por favor, ingresa tu nombre.</small>
+          </div>
+          <div class="form__group">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" required placeholder="tucorreo@ejemplo.com"/>
+            <small class="form__error">Ingresa un correo válido.</small>
+          </div>
+          <div class="form__group">
+            <label for="interest">Interés</label>
+            <select id="interest" name="interest" required>
+              <option value="">Selecciona una opción</option>
+              <option value="Miembro">Miembro</option>
+              <option value="Aliado">Aliado</option>
+              <option value="Estudiante">Estudiante</option>
+            </select>
+            <small class="form__error">Selecciona tu interés.</small>
+          </div>
+          <button type="submit" class="btn btn--primary">Aplicar como Guía juvenil</button>
+          <p id="formStatus" class="form__status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- EL CASTILLO DE FUNDEDU -->
+    <section id="castle" class="section section--alt">
+      <div class="container grid grid--2">
+        <div>
+          <h2>El Castillo de FundEdu</h2>
+          <p>Un videojuego educativo medieval + tech para aprender jugando. Explora el mapa del castillo y desbloquea retos.</p>
+          <a href="#" class="btn btn--secondary">Descargar el juego</a>
+        </div>
+        <div class="card card--soft">
+          <!-- Reemplaza con preview del mapa -->
+          <div class="placeholder">Preview del mapa del castillo</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section">
+      <div class="container">
+        <h2>Testimonios</h2>
+        <div class="cards">
+          <blockquote class="card card--quote">
+            <p>“Aquí siento que pertenezco. Aprendo y me siento segura para liderar.”</p>
+            <footer>— Ana, 15</footer>
+          </blockquote>
+          <blockquote class="card card--quote">
+            <p>“FundEdu me dio confianza para emprender mis ideas.”</p>
+            <footer>— Diego, 16</footer>
+          </blockquote>
+          <blockquote class="card card--quote">
+            <p>“La comunidad es súper amigable y motivadora.”</p>
+            <footer>— Valeria, 14</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER -->
+    <section id="contact" class="section section--alt">
+      <div class="container grid grid--1">
+        <div>
+          <h2>Contacto</h2>
+          <p>¿Quieres ser parte como aliado o miembro? Escríbenos y construyamos juntos.</p>
+          <ul class="list">
+            <li><strong>Email:</strong> fundeduyempresas@gmail.com</li>
+            <li><strong>Redes:</strong> @fundedu_</li>
+          </ul>
+           <p>© FundEdu. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
