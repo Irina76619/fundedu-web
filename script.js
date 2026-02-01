@@ -43,7 +43,7 @@ function validateForm() {
 
 async function submitToExcelAPI(payload) {
   // TODO: Reemplaza con tu endpoint real (por ejemplo, Apps Script, Airtable, Nocodb, etc.)
-  const EXCEL_API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOmGXFa20c8tquq44H10AVXhrB_oGwq1eYKF3U4BnzzDNABjhEdXMcuuYrKkmX_7Tmdg/exec';
+  const EXCEL_API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzi6Dx-yENNXm3d_RuTzpNVINGTv694SlcfkRhqH35WmBWG7V2RN0ZtkZjHpMcDc5v26w/exec';
 
   const res = await fetch(EXCEL_API_ENDPOINT, {
     method: 'POST',
