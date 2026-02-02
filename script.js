@@ -40,25 +40,45 @@ function validateForm() {
   return valid;
 }
 
-async function submitToExcelAPI(payload) {
+function submitToExcelAPI(payload) {
   const EXCEL_API_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzi6Dx-yENNXm3d_RuTzpNVINGTv694SlcfkRhqH35WmBWG7V2RN0ZtkZjHpMcDc5v26w/exec';
 
-  try {
-    await fetch(EXCEL_API_ENDPOINT, {
-      method: 'POST',
-      mode: 'no-cors', // ← CRÍTICO: Evita el error de CORS
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
+  return new Promise((resolve, reject) => {
+    // Crear iframe oculto
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.name = 'hiddenFrame';
+    document.body.appendChild(iframe);
 
-    // Con mode: 'no-cors' no podemos leer la respuesta
-    // pero los datos SÍ se envían correctamente a Google Sheets
-    return { status: 'success' };
-    
-  } catch (error) {
-    console.error('Error en submitToExcelAPI:', error);
-    throw error;
-  }
+    // Crear formulario que apunta al iframe
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = EXCEL_API_ENDPOINT;
+    form.target = 'hiddenFrame';
+    form.style.display = 'none';
+
+    // Agregar campos
+    for (let key in payload) {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = payload[key];
+      form.appendChild(input);
+    }
+
+    // Manejar respuesta
+    iframe.onload = function() {
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+        document.body.removeChild(form);
+        resolve({ status: 'success' });
+      }, 1000);
+    };
+
+    // Enviar
+    document.body.appendChild(form);
+    form.submit();
+  });
 }
 
 if (form) {
